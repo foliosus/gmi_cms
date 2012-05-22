@@ -1,0 +1,7 @@
+.row
+  .twelvecol
+    %h1=h @page.title
+  .eightcol
+    = raw @page.content_for(:body)
+  .fourcol.last
+    = raw @page.content_for(:side_body)
