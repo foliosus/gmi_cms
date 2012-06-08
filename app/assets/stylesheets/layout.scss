@@ -1,0 +1,35 @@
+@import "standard_declarations";
+
+body {
+  background-color: $body_background_color;
+}
+
+#page_header {
+  @include padding_leader(1);
+  @include margin_trailer(1);
+  float: left;
+  width: 100%;
+  @include background-image(linear-gradient(#fff 50%, $body_background_accent_color));
+  border-bottom: 1px solid darken($body_background_accent_color, 4%);
+  @include single-box-shadow(rgba(0,0,0, 0.1), 0px, 2px, 8px);
+  padding-left: 20px;
+  padding-right: 20px;
+  position: relative;
+  left: -20px;
+  
+  #branding {
+    float: left;
+    @include subtle_links;
+    margin-bottom: 0;
+  }
+  
+  #language_switcher {
+    float: right;
+    @include subtle_links;
+    @include adjust-font-size-to($base-font-size * 0.75, $lines: 1);
+  }
+  
+  & + .row {
+    clear: both;
+  }
+}

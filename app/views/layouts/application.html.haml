@@ -22,10 +22,13 @@
   
   %body{:lang => Globalize.locale || 'en'}
     .container
-      #language_switcher
-        - if Globalize.locale == :en
-          = link_to 'Español', {:locale => :es}
-        - else
-          = link_to 'English', {:locale => :en}
-      
-      = yield
+      %header#page_header
+        %h1#branding
+          = link_to image_tag('gmi_logo.png', :width => 200, :height => 80, :alt => 'Greenville Montessori Institute'), root_path
+        #language_switcher
+          - if Globalize.locale == :en
+            = link_to 'Español', {:locale => :es}
+          - else
+            = link_to 'English', {:locale => :en}
+      .row
+        = yield

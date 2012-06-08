@@ -12,131 +12,15 @@
  *= require_tree .
 */
 
-$relative-font-sizing: true;
-$base-font-size: 16px;
-$base-line-height: 20px;
-
-@import "compass";
-@import "compass/reset";
-@import "compass/typography";
-@import "compass/typography/vertical_rhythm";
-
-@import "colors";
+@import "standard_declarations";
 
 @include establish-baseline;
 
-body {
-  font-family: 'Cabin', 'Trebuchet MS', 'Trebuchet', sans-serif;
-  color: $body_text_color;
-  @include padding_leader(2);
-  @include padding_trailer(4);
-}
-	
-h1 {
-  @include adjust-font-size-to($base-font-size * 3, $lines: 4);
-  color: $logo_green;
-  margin-bottom: 0.5em;
-}
-
-h2 {
-  @include adjust-font-size-to($base-font-size * 2, $lines: 3);
-}
-
-h3 {
-  @include adjust-font-size-to($base-font-size * 1.5, $lines: 2);
-}
-
-h4 {
-  font-weight: bold;
-}
-
-p, ul, blockquote {
-  @include trailer;
-}
-
-a, a:link {
-  color: lighten($body_text_color, 30%);
-  text-decoration: none;
-  border-bottom: 1px solid;
-  &.image { border-bottom: none; }
-}
-a:visited { color: lighten($logo_green, 5%); }
-a:hover, a:active { color: lighten($logo_green, 20%); }
-
-a.button {
-  display: block;
-  margin-left: 20%;
-  margin-right: 20%;
-  color: #fff;
-  border: 1px solid $logo_blue;
-  text-align: center;
-  @include adjust_font_size_to($base-font-size * 1.5);
-  @include padding_leader(0.5);
-  @include padding_trailer(0.5);
-  @include margin_leader(1);
-  @include margin_trailer(1);
-  @include border-radius(5px);
-  @include single-text-shadow($logo_blue, 0, -1px, 1px);
-  @include background-image(linear-gradient(top, desaturate(lighten($logo_blue, 40%), 40%), lighten($logo_blue, 10%)));
-  &:active {
-    @include background-image(linear-gradient(top, lighten($logo_blue, 10%), desaturate(lighten($logo_blue, 40%), 40%)));
-  }
-}
+@import "typography";
+@import "forms";
 
 #contact_information { display: none; }
 
-#ami_logo { @include margin_leader(3); }
-
 .center {
   text-align: center;
-}
-
-form {
-  label {
-    display: block;
-    font-weight: bold;
-  }
-  input {
-    &.text,
-    &.title,
-    &[type=email],
-    &[type=text],
-    &[type=password] {
-      background-color: white;
-      padding: 5px;
-    }
-  }
-  textarea {
-    padding: 5px;
-  }
-  select {
-    margin: 0.5em 0;
-  }
-  input, textarea {
-    width: 95%;
-    border: 1px solid lighten(desaturate($logo_blue, 60%), 60%);
-    @include margin_trailer(1);
-    @include padding_leader(0.5);
-    @include padding_trailer(0.5);
-    padding-left: 2.5%;
-    padding-right: 2.5%;
-    &:focus {
-      border-color: lighten($logo_blue, 10%);
-    }
-  }
-  .field_with_errors {
-    color: #900;
-    input, textarea {
-      border-color: #900 !important;
-    }
-  }
-  .nickname { display: none; }
-  ul.errors {
-    color: #900;
-    background-color: #fee;
-    padding-left: 2.5%;
-    padding-right: 2.5%;
-    @include padding_leader(0.5);
-    @include padding_trailer(0.5);
-  }
 }

@@ -2,3 +2,9 @@ $logo_green: rgb(0, 71, 18);
 $logo_blue: rgb(0, 43, 92);
 
 $body_text_color: $logo_blue;
+$body_background_color: #fff;
+$body_background_accent_color: #edf0f4;
+
+$link_color: lighten($body_text_color, 30%);
+$link_visited_color: lighten($logo_green, 5%);
+$link_active_color: lighten($logo_green, 20%);

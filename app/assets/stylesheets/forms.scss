@@ -1,0 +1,51 @@
+@import "standard_declarations";
+
+form {
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  input {
+    &.text,
+    &.title,
+    &[type=email],
+    &[type=text],
+    &[type=password] {
+      background-color: white;
+      padding: 5px;
+    }
+  }
+  textarea {
+    padding: 5px;
+  }
+  select {
+    margin: 0.5em 0;
+  }
+  input, textarea {
+    width: 95%;
+    border: 1px solid lighten(desaturate($logo_blue, 60%), 60%);
+    @include margin_trailer(1);
+    @include padding_leader(0.5);
+    @include padding_trailer(0.5);
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    &:focus {
+      border-color: lighten($logo_blue, 10%);
+    }
+  }
+  .field_with_errors {
+    color: #900;
+    input, textarea {
+      border-color: #900 !important;
+    }
+  }
+  .nickname { display: none; }
+  ul.errors {
+    color: #900;
+    background-color: #fee;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    @include padding_leader(0.5);
+    @include padding_trailer(0.5);
+  }
+}
