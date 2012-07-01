@@ -14,6 +14,9 @@
 /log/*.log
 /tmp
 
+# Bundle binstubs
+bin/
+
 /config/database.yml
 
 config/email.yml
