@@ -10,9 +10,24 @@ form {
     &.title,
     &[type=email],
     &[type=text],
-    &[type=password] {
+    &[type=password],
+    &[type=submit] {
       background-color: white;
-      padding: 5px;
+      @include padding_leader(0.25);
+      @include padding_trailer(0.25);
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      @include margin-trailer(0.5);
+    }
+    &[type=submit] {
+      width: auto;
+      color: #fff;
+      @include border-radius(5px);
+      @include single-text-shadow($logo_blue, 0, -1px, 1px);
+      @include background-image(linear-gradient(top, desaturate(lighten($logo_blue, 40%), 40%), lighten($logo_blue, 10%)));
+      &:active {
+        @include background-image(linear-gradient(top, lighten($logo_blue, 10%), desaturate(lighten($logo_blue, 40%), 40%)));
+      }
     }
   }
   textarea {
@@ -22,13 +37,12 @@ form {
     margin: 0.5em 0;
   }
   input, textarea {
-    width: 95%;
+    width: 100%;
     border: 1px solid lighten(desaturate($logo_blue, 60%), 60%);
+    @include box-sizing(border-box);
     @include margin_trailer(1);
     @include padding_leader(0.5);
     @include padding_trailer(0.5);
-    padding-left: 2.5%;
-    padding-right: 2.5%;
     &:focus {
       border-color: lighten($logo_blue, 10%);
     }
@@ -47,5 +61,8 @@ form {
     padding-right: 2.5%;
     @include padding_leader(0.5);
     @include padding_trailer(0.5);
+  }
+  .actions {
+    @include subtle_links;
   }
 }
