@@ -6,19 +6,28 @@
     %title= [@title || @page.try(:menu_title) || @page.try(:title), 'Greenville Montessori Institute, South Carolina'].join(' :: ')
     
     %meta{:name => 'viewport', :content => 'width=device-width', :'initial-scale' => 1}
+    - if @meta.meta_description.present?
+      %meta{:name => :description, :content => @meta.meta_description}
+    - if @meta.meta_keywords.present?
+      %meta{:name => :keywords, :content => @meta.meta_keywords}
+    - if @canonical.present?
+      %link{:rel => :canonical, :content => @canonical}
     
     = stylesheet_link_tag '1140', 'application', :media => 'all'
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Cabin:400,600,400italic,600italic', :media => 'all'
     
     = javascript_include_tag 'application', 'css3-mediaqueries.js'
   	
-    = csrf_meta_tags
+    = csrf_meta_tags if Refinery::Core.authenticity_token_on_frontend
     
     /[if lt IE 9]
       / This script enables structural HTML5 elements in old IE. http://code.google.com/p/html5shim/
       %script{:src => 'http:///html5shim.googlecode.com/svn/trunk/html5.js'}
       = stylesheet_link_tag 'ie', :media => 'all'
-  
+    
+    = yield :meta
+    
+    = render :partial => 'refinery/google_analytics'
   
   %body{:lang => Globalize.locale || 'en'}
     .container
@@ -28,6 +37,7 @@
             = link_to image_tag('gmi_logo.png', :width => 200, :height => 80, :alt => 'Greenville Montessori Institute'), refinery.root_path
           #language_switcher
             %p= language_switching_link
+          = render :partial => 'refinery/menu', :locals => {:dom_id => 'primary_menu'}
       .row
         = yield
       #footer

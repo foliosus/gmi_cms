@@ -37,6 +37,33 @@ body {
   }
 }
 
+#primary_menu {
+  @include subtle_links;
+  float: left;
+  padding-top: 63px;
+  margin-left: 10%;
+  ul {
+    float: left;
+    li {
+      float: left;
+      margin-right: 1rem;
+      a {
+        @include padding_leader(0.5);
+        @include padding_trailer(0.5);
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      }
+      &.last { margin-right: 0; }
+      &.selected {
+        a {
+          color: $link_visited_color;
+          pointer: default;
+        }
+      }
+    }
+  }
+}
+
 #footer {
   @include margin_leader(2);
   @include padding_leader(1);
@@ -64,5 +91,14 @@ body {
     padding-left: 20px;
     padding-right: 20px;
     @include box-sizing(border-box);
+  }
+  
+  #primary_menu {
+    clear: left;
+    margin-left: 0;
+    padding-top: 0;
+    li.first {
+      a { padding-left: 0; }
+    }
   }
 }
