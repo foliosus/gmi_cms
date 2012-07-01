@@ -1,9 +1,10 @@
 @import "colors";
 
 $relative-font-sizing: true;
-$base-font-size: 16px;
-$base-line-height: 20px;
-
+$font-unit: 1rem;
+/*$base-font-size: 16px;
+$base-line-height: 22px;
+*/
 @import "compass";
 @import "compass/reset";
 @import "compass/typography";

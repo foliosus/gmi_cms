@@ -23,12 +23,10 @@
   %body{:lang => Globalize.locale || 'en'}
     .container
       %header#page_header
-        %h1#branding
-          = link_to image_tag('gmi_logo.png', :width => 200, :height => 80, :alt => 'Greenville Montessori Institute'), root_path
-        #language_switcher
-          - if Globalize.locale == :en
-            = link_to 'Español', {:locale => :es}
-          - else
-            = link_to 'English', {:locale => :en}
+        .row
+          %h1#branding
+            = link_to image_tag('gmi_logo.png', :width => 200, :height => 80, :alt => 'Greenville Montessori Institute'), refinery.root_path
+          #language_switcher
+            %p= language_switching_link
       .row
         = yield

@@ -1,0 +1,90 @@
+@import "standard_declarations";
+
+/* ==================================================================================================================== */
+/* ! The 1140px Grid V2 by Andy Taylor \ http://cssgrid.net \ http://www.twitter.com/andytlr \ http://www.andytlr.com   */
+/* ==================================================================================================================== */
+
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.row {
+  width: 100%;
+  max-width: 1140px;
+  min-width: 755px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+$col_num: 12;
+$gutter_width: 3.8%;
+$col_width: (100% - (($col_num - 1) * $gutter_width)) / $col_num;
+
+@for $i from 1 to $col_num {
+  .span-#{$i} {
+    margin-right: $gutter_width;
+    float: left;
+    min-height: 1px;
+    .row > & {
+      width: $i * $col_width + (($i - 1) * $gutter_width);
+    }
+    &.last { margin-right: 0; }
+  }
+}
+
+.row .span-12 {
+  float: left;
+  width: 100%;
+}
+
+
+img, object, embed {
+  max-width: 100%;
+}
+
+img {
+	height: auto;
+}
+
+
+/* Smaller screens */
+
+@media only screen and (max-width: 1023px) {
+  @include establish-baseline(14px);
+}
+
+
+/* Mobile */
+
+@media handheld, only screen and (max-width: 767px) {
+  
+	body {
+  	-webkit-text-size-adjust: none;
+	}
+	
+	.row, body, .container {
+  	width: 100%;
+  	min-width: 0;
+  	margin-left: 0px;
+  	margin-right: 0px;
+  	padding-left: 0px;
+  	padding-right: 0px;
+	}
+	
+	@for $i from 1 through $col_num {
+	  .row .span-#{$i} {
+    	width: auto;
+    	float: none;
+    	margin-left: 0px;
+    	margin-right: 0px;
+    	padding-left: 20px;
+    	padding-right: 20px;
+	  }
+  }
+
+}
+
+@media handheld, only screen and (max-width: 321px) {
+  @include establish-baseline(18px);
+}

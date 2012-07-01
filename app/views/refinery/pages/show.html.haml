@@ -1,7 +1,7 @@
 .row
-  .twelvecol
+  .span-12
     %h1=h @page.title
-  .eightcol
+  .span-8
     = raw @page.content_for(:body)
-  .fourcol.last
+  .span-4.last#sidebar
     = raw @page.content_for(:side_body)

@@ -1,14 +1,18 @@
 @import "standard_declarations";
+@include establish-baseline;
 
 body {
   font-family: 'Cabin', 'Trebuchet MS', 'Trebuchet', sans-serif;
   color: $body_text_color;
 }
 
+.container {
+  @include adjust-font-size-to($base-font-size, $lines: 1);
+}
+
 h1 {
   @include adjust-font-size-to($base-font-size * 3, $lines: 4);
   color: $logo_green;
-  margin-bottom: 0.5em;
 }
 
 h2 {
@@ -54,4 +58,11 @@ a.button {
   &:active {
     @include background-image(linear-gradient(top, lighten($logo_blue, 10%), desaturate(lighten($logo_blue, 40%), 40%)));
   }
+}
+
+#sidebar {
+  @include adjust-font-size-to($base-font-size * 0.875, $lines: 1);
+  h1 { @include adjust-font-size-to($base-font-size * 1.5, $lines: 2) }
+  h2 { @include adjust-font-size-to($base-font-size * 1.25, $lines: 2) }
+  h3 { @include adjust-font-size-to($base-font-size * 1, $lines: 1) }
 }
