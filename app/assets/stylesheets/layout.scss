@@ -5,7 +5,7 @@ body {
 }
 
 .container {
-  background-color: $body_background_color;
+  background: $body_background_color url('/assets/linen_texture.jpg') repeat;
 }
 
 @mixin behave_with_the_grid {
@@ -57,6 +57,7 @@ body {
       &.selected {
         a {
           color: $link_visited_color;
+          font-weight: bold;
           pointer: default;
         }
       }
