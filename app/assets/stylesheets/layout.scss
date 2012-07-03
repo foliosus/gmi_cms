@@ -71,7 +71,7 @@ body {
   @include padding_trailer(2);
   @include behave_with_the_grid;
   @include background-image(linear-gradient(desaturate($logo_blue, 50%), $footer_background_color));
-  border-top: 1px solid darken($body_text_color, 50%);
+  border-top: 2px solid darken($body_text_color, 50%);
   color: #aaa;
   a, a:link { color: lighten($link_color, 50%); }
   

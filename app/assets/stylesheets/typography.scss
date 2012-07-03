@@ -60,6 +60,14 @@ a.button {
   }
 }
 
+::selection {
+  background: $body_text_selection_color;
+}
+
+::-moz-selection {
+  background: $body_text_selection_color;
+}
+
 #sidebar {
   @include adjust-font-size-to($base-font-size * 0.875, $lines: 1);
   h1 { @include adjust-font-size-to($base-font-size * 1.5, $lines: 2) }
