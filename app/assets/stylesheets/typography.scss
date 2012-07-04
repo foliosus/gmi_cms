@@ -1,8 +1,18 @@
 @import "standard_declarations";
 @include establish-baseline;
 
+@mixin highlight_color($color) {
+  ::selection {
+    background: $color;
+  }
+
+  ::-moz-selection {
+    background: $color;
+  }
+}
+
 body {
-  font-family: 'Cabin', 'Trebuchet MS', 'Trebuchet', sans-serif;
+  font-family: 'Open Sans', 'Verdana', sans-serif;
   color: $body_text_color;
 }
 
@@ -13,6 +23,7 @@ body {
 h1 {
   @include adjust-font-size-to($base-font-size * 3, $lines: 6);
   color: $logo_green;
+  font-weight: bold;
 }
 
 h2 {
@@ -60,13 +71,7 @@ a.button {
   }
 }
 
-::selection {
-  background: $body_text_selection_color;
-}
-
-::-moz-selection {
-  background: $body_text_selection_color;
-}
+@include highlight_color($body_text_selection_color);
 
 #sidebar {
   @include adjust-font-size-to($base-font-size * 0.875, $lines: 1);
