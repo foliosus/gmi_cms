@@ -13,3 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+jQuery(function($) {
+  $('#messages .flash_close').click(function() {
+    $(this).closest('.flash').slideUp('fast', function() {
+      $(this).remove();
+    });
+    return false;
+  })
+});

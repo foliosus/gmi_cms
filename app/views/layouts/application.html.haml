@@ -39,6 +39,7 @@
             %p= language_switching_link
           = render :partial => 'refinery/menu', :locals => {:dom_id => 'primary_menu'}
       .row
+        = render :partial => 'refinery/message'
         = yield
       #footer
         .row

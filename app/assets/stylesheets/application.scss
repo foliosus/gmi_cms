@@ -23,4 +23,56 @@
   text-align: center;
 }
 
-@import "pages"
+@import "pages";
+
+
+/* ============== */
+/* Flash messages */
+/* ============== */
+
+@mixin flash_box($base_color) {
+  background-color: rgba(desaturate($base_color, 30%), 0.25);
+  border-color: rgba(darken($base_color, 50%), 0.33);
+}
+
+#messages {
+  .flash {
+    @include margin-trailer(1);
+    @include padding_leader(1);
+    @include padding_trailer(1);
+    padding-left: 4.5rem;
+    padding-right: 4.5rem;
+    border: 1px solid;
+    background: transparent url() 1rem center no-repeat;
+    position: relative;
+    
+    .flash_close {
+      @include subtle_link;
+      position: absolute;
+      top: rhythm($lines: 1);
+      right: 1rem;
+      width: 20px;
+      height: 20px;
+      margin-left: 2rem;
+      text-indent: -9999em;
+      background: transparent url('/assets/icon_close.png') center no-repeat;
+    }
+    
+    $info_color: lighten($logo_green, 50%);
+    &.info {
+      @include flash_box($info_color);
+      background-image: url('/assets/icon_check.png');
+    }
+    
+    &.warning {
+      @include flash_box(adjust_hue($info_color, -75deg));
+      background-image: url('/assets/icon_warning.png');
+    }
+    
+    &.error {
+      @include flash_box(adjust_hue($info_color, -120deg));
+      background-image: url('/assets/icon_error.png');
+      
+    }
+  }
+}

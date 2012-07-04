@@ -1,0 +1,6 @@
+- if flash.keys.present?
+  #messages
+    - flash.each do |key, value|
+      .flash{:class => key}
+        = value
+        = link_to t(".close#{'_this_message' if key.to_s == "message"}"), '', :class => 'flash_close'
