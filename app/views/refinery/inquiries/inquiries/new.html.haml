@@ -1,0 +1,26 @@
+.row
+  .span-12
+    = render "/refinery/content_page"
+  .inquiries.span-8
+    = semantic_form_for [refinery, :inquiries, @inquiry] do |f|
+      = render :partial => "refinery/admin/error_messages", :locals => {:object => @inquiry, :include_object_name => true}
+      = f.inputs do
+        = f.input :name, :required => true,
+          :label => t('name', :scope => 'activerecord.attributes.refinery/inquiry'),
+          :placeholder => t('name', :scope => 'activerecord.attributes.refinery/inquiry')
+        = f.input :email, :required => true,
+          :label => t('email', :scope => 'activerecord.attributes.refinery/inquiry'),
+          :placeholder => t('email', :scope => 'activerecord.attributes.refinery/inquiry')
+        = f.input :phone,
+          :label => t('phone', :scope => 'activerecord.attributes.refinery/inquiry'),
+          :placeholder => t('phone', :scope => 'activerecord.attributes.refinery/inquiry')
+        = f.input :message, :as => :text, :required => true,
+          :label => t('message', :scope => 'activerecord.attributes.refinery/inquiry'),
+          :placeholder => t('message', :scope => 'activerecord.attributes.refinery/inquiry')
+      = f.actions do
+        = f.action :submit, :label => "#{t('.send')}!"
+        - if Refinery::Inquiries.show_contact_privacy_link
+          = link_to t('.privacy_policy'), "/pages/privacy-policy", :id => "privacy_link"
+  
+  .span-4.last#sidebar
+    = raw @page.content_for(:side_body)

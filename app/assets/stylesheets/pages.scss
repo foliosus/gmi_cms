@@ -1,6 +1,5 @@
 @import "standard_declarations";
 
 #privacy_link {
-  float: right;
   @include adjust_font_size_to($base-font-size * 0.75);
 }

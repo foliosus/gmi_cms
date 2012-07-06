@@ -4,6 +4,12 @@ form {
   label {
     display: block;
     font-weight: bold;
+    position: relative;
+    abbr[title=required] {
+      position: absolute;
+      left: -1rem;
+      color: #900;
+    }
   }
   input {
     &.text,
@@ -11,7 +17,9 @@ form {
     &[type=email],
     &[type=text],
     &[type=password],
-    &[type=submit] {
+    &[type=submit],
+    &[type=tel],
+    &[type=url] {
       background-color: white;
       @include padding_leader(0.25);
       @include padding_trailer(0.25);
