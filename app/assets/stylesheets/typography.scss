@@ -71,7 +71,7 @@ a.button {
   }
 }
 
-@include highlight_color($body_text_selection_color);
+@include highlight_color(rgba($body_text_selection_color, 0.3));
 
 #sidebar {
   @include adjust-font-size-to($base-font-size * 0.875, $lines: 1);
