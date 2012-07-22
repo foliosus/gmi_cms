@@ -1,3 +1,9 @@
+PATH
+  remote: vendor/extensions
+  specs:
+    refinerycms-applications (1.0)
+      refinerycms-core (~> 2.0.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -75,6 +81,8 @@ GEM
       factory_girl (~> 3.0.0)
       railties (>= 3.0.0)
     filters_spam (0.3)
+    foreigner (1.2.0)
+      activerecord (>= 3.0.0)
     formtastic (2.2.1)
       actionpack (>= 3.0)
     friendly_id (4.0.5)
@@ -242,11 +250,12 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   compass-rails (~> 1.0.1)
   factory_girl_rails (~> 3.0.0)
-  formtastic
+  foreigner (~> 1.2.0)
+  formtastic (~> 2.2.1)
   haml (~> 3.1.4)
   jquery-rails (~> 2.0.1)
   libv8 (~> 3.3.10.4)
-  mysql2
+  mysql2 (~> 0.3.11)
   newrelic_rpm (~> 3.3)
   rails (= 3.2.2)
   rb-readline (~> 0.4.2)
