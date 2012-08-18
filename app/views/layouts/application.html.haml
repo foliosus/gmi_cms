@@ -13,6 +13,8 @@
     - if @canonical.present?
       %link{:rel => :canonical, :content => @canonical}
     
+    %link{:rel => 'icon', :type => 'image/png', :href => '/favicon.png'}
+    
     = stylesheet_link_tag '1140', 'application', :media => 'all'
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,latin-ext', :media => 'all'
     
