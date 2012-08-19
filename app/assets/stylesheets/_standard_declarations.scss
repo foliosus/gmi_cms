@@ -26,3 +26,7 @@ $base-line-height: 22px;
     @include subtle_link;
   }
 }
+
+@mixin bold {
+  font-weight: 700;
+}

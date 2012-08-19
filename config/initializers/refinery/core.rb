@@ -1,6 +1,6 @@
 Refinery::Core.configure do |config|
   # When true will rescue all not found errors and display a friendly error page
-  config.rescue_not_found = Rails.env.production?
+  config.rescue_not_found = !Rails.env.development?
 
   # When true will use Amazon's Simple Storage Service instead of
   # the default file system for storing resources and images
@@ -19,7 +19,7 @@ Refinery::Core.configure do |config|
   config.google_analytics_page_code = "UA-31660071-1" if Rails.env.production?
 
   # Enable/disable authenticity token on frontend
-  # config.authenticity_token_on_frontend = true
+  config.authenticity_token_on_frontend = true
 
   # Hide/show child pages in menu
   # config.menu_hide_children = false

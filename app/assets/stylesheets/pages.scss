@@ -3,3 +3,18 @@
 #privacy_link {
   @include adjust_font_size_to($base-font-size * 0.75);
 }
+
+#application_parts {
+  li {
+    padding-left: 20px;
+    &.current {
+      @include bold;
+    }
+    &.complete {
+      background: transparent url(/assets/icon_check_small.png) left center no-repeat;
+    }
+    &.incomplete {
+      background: transparent url(/assets/icon_warning_small.png) left center no-repeat;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+nb:
+  refinery:
+    plugins:
+      applications:
+        title: Applications
+    applications:
+      admin:
+        applications:
+          actions:
+            create_new: Lag en ny Application
+            reorder: Endre rekkefølgen på Applications
+            reorder_done: Ferdig å endre rekkefølgen Applications
+          records:
+            title: Applications
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Applications enda. Klikk på "Lag en ny Application" for å legge til din første application.
+          application:
+            view_live_html: Vis hvordan denne application ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne application
+            delete: Fjern denne application permanent
+      applications:
+        show:
+          other: Andre Applications
+  activerecord:
+    attributes:
+      'refinery/applications/application':
+        first_name: First Name
+        last_name: Last Name
+        address1: Address1
+        address2: Address2
+        city: City
+        state: State
+        postal_code: Postal Code
+        country: Country
+        statement: Statement

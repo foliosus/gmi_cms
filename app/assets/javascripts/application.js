@@ -20,5 +20,10 @@ jQuery(function($) {
       $(this).remove();
     });
     return false;
-  })
+  });
+  
+  // After 10 seconds, close any flash messages
+  setTimeout(function() {
+    $('#messages .flash_close').click();
+  }, 10 * 1000);
 });

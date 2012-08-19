@@ -1,0 +1,35 @@
+nl:
+  refinery:
+    plugins:
+      applications:
+        title: Applications
+    applications:
+      admin:
+        applications:
+          actions:
+            create_new: Maak een nieuwe Application
+            reorder: Wijzig de volgorde van de Applications
+            reorder_done: Klaar met het wijzingen van de volgorde van de Applications
+          records:
+            title: Applications
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Applications. Druk op 'Maak een nieuwe Application' om de eerste aan te maken.
+          application:
+            view_live_html: Bekijk deze application op de website <br/><em>(opent een nieuw venster)</em>
+            edit: Bewerk deze application
+            delete: Verwijder deze application voor eeuwig
+      applications:
+        show:
+          other: Andere Applications
+  activerecord:
+    attributes:
+      'refinery/applications/application':
+        first_name: First Name
+        last_name: Last Name
+        address1: Address1
+        address2: Address2
+        city: City
+        state: State
+        postal_code: Postal Code
+        country: Country
+        statement: Statement

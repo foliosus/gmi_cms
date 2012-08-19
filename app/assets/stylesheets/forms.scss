@@ -1,16 +1,27 @@
 @import "standard_declarations";
 
 form {
+  fieldset {
+    position: relative;
+    @include margin-trailer(2);
+    
+    legend {
+      @include adjust-font-size-to($base-font-size * 1.5, $lines: 2);
+      @include margin-trailer(1);
+      @include bold;
+    }
+  }
+  
   label {
     display: block;
     font-weight: bold;
     position: relative;
     abbr[title=required] {
-      position: absolute;
-      left: -1rem;
       color: #900;
+      padding-left: 0.25em;
     }
   }
+  
   input {
     &.text,
     &.title,
@@ -38,39 +49,72 @@ form {
       }
     }
   }
+  
   textarea {
     padding: 5px;
   }
+  
   select {
     margin: 0.5em 0;
   }
+  
   input, textarea {
     width: 100%;
     border: 1px solid lighten(desaturate($logo_blue, 60%), 60%);
     @include box-sizing(border-box);
-    @include margin_trailer(1);
-    @include padding_leader(0.5);
-    @include padding_trailer(0.5);
+    @include margin-trailer(1);
+    @include padding-leader(0.5);
+    @include padding-trailer(0.5);
     &:focus {
       border-color: lighten($logo_blue, 10%);
     }
   }
+  
+  input[type=checkbox] {
+    width: auto;
+  }
+  
   .field_with_errors {
     color: #900;
     input, textarea {
       border-color: #900 !important;
     }
   }
+  
+  p.inline-errors, p.inline-hints {
+    @include margin-leader(-1);
+  }
+  p.inline-errors {
+    color: #900;
+  }
+  p.inline-hints{
+    color: #999;
+  }
+  
+  li.error {
+    $base_color: adjust_hue(lighten($logo_green, 50%), -120deg); // Red
+    input {
+      background-color: rgba(desaturate($base_color, 30%), 0.25);
+      border-color: rgba(darken($base_color, 50%), 0.33);
+    }
+  }
+  
   .nickname { display: none; }
+  
   ul.errors {
     color: #900;
     background-color: #fee;
     padding-left: 2.5%;
     padding-right: 2.5%;
-    @include padding_leader(0.5);
-    @include padding_trailer(0.5);
+    @include padding-leader(0.5);
+    @include padding-trailer(0.5);
   }
+  
   .actions {
     @include subtle_links;
+  }
+  
+  fieldset.inputs + fieldset.actions {
+    @include margin-leader(-1);
   }
 }

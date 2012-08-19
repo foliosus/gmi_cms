@@ -5,6 +5,7 @@ gem 'mysql2', '~> 0.3.11'
 
 gem 'formtastic', '~> 2.2.1'
 gem 'foreigner', '~> 1.2.0'
+gem 'state_machine', '~> 1.1.2'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -41,6 +42,7 @@ gem 'refinerycms-blog', '~> 2.0.0'
 gem 'refinerycms-inquiries', '~> 2.0.0'
 # gem 'refinerycms-search', '~> 2.0.0'
 # gem 'refinerycms-page-images', '~> 2.0.0'
+gem 'refinerycms-applications', :path => 'vendor/extensions'
 
 group :test do
   gem 'shoulda', '~> 3.0.1'

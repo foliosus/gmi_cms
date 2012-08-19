@@ -1,0 +1,19 @@
+- @title = 'My application'
+
+.span-8
+  - if @application.submitted? # Old visitor -- tell 'em to wait
+    %h2 Application submitted!
+    %p Thank you for completing your application to Greenville Montessori Institute. We will be in touch when we make a decision.
+  
+  - else # In-flight application
+    - if @application.valid?
+      %h2 Application complete!
+      %p It looks like you've completed all parts of your application. If you think it's <em>really</em> done, then submit it for review. After you submit your application, you won't be able to make any more changes, so be sure!
+      %p= link_to 'Submit your application!', refinery.submit_applications_application_path(@application), :method => :post, :class => 'button'
+    - else
+      %h2 Incomplete application
+      %p Please continue filling out your application!
+    
+
+.span-4.last
+  = render :partial => "parts"

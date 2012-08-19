@@ -1,0 +1,18 @@
+.span-4
+  %h2 Apply to GMI
+  %p We're so happy that you wish to apply to GMI!
+  = semantic_form_for resource, :as => resource_name, :url => registration_path(resource_name) do |f|
+    = devise_error_messages!
+    = f.inputs do
+      = f.input :first_name, :required => true, :input_html => {:maxlength => 50}
+      = f.input :last_name, :required => true, :input_html => {:maxlength => 50}
+      = f.input :email, :required => true, :input_html => {:maxlength => 50}
+      = f.input :password, :required => true, :input_html => {:maxlength => 255}
+      = f.input :password_confirmation, :required => true, :input_html => {:maxlength => 255}
+    = f.actions do
+      = f.action :submit, :label => 'Start your application now!'
+  
+  %p= render 'links'
+
+.span-4.last#sidebar
+  = yield :side_body

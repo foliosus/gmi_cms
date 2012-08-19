@@ -59,7 +59,7 @@
     }
     
     $info_color: lighten($logo_green, 50%);
-    &.info {
+    &.info, &.notice {
       @include flash_box($info_color);
       background-image: url('/assets/icon_check.png');
     }
@@ -69,7 +69,7 @@
       background-image: url('/assets/icon_warning.png');
     }
     
-    &.error {
+    &.error, &.alert {
       @include flash_box(adjust_hue($info_color, -120deg));
       background-image: url('/assets/icon_error.png');
       

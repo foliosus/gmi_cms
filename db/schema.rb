@@ -11,7 +11,48 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120513211647) do
+ActiveRecord::Schema.define(:version => 20120722190113) do
+
+  create_table "refinery_applicants", :force => true do |t|
+    t.string   "first_name",             :limit => 50
+    t.string   "middle_name",            :limit => 50
+    t.string   "last_name",              :limit => 50
+    t.string   "email",                  :limit => 50,                :null => false
+    t.string   "encrypted_password",                                  :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                        :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip",     :limit => 24
+    t.string   "last_sign_in_ip",        :limit => 24
+    t.string   "password_salt"
+    t.integer  "position"
+    t.datetime "created_at",                                          :null => false
+    t.datetime "updated_at",                                          :null => false
+  end
+
+  add_index "refinery_applicants", ["email"], :name => "index_refinery_applicants_on_email", :unique => true
+  add_index "refinery_applicants", ["reset_password_token"], :name => "index_refinery_applicants_on_reset_password_token", :unique => true
+
+  create_table "refinery_applications", :force => true do |t|
+    t.integer  "refinery_applicant_id"
+    t.string   "address1",              :limit => 50
+    t.string   "address2",              :limit => 50
+    t.string   "city",                  :limit => 50
+    t.string   "province",              :limit => 30
+    t.string   "postal_code",           :limit => 10
+    t.string   "country",               :limit => 50
+    t.text     "statement"
+    t.text     "answer"
+    t.text     "state"
+    t.integer  "position"
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+  end
+
+  add_index "refinery_applications", ["refinery_applicant_id"], :name => "refinery_applications_refinery_applicant_id_fk"
 
   create_table "refinery_blog_categories", :force => true do |t|
     t.string   "title"
@@ -242,5 +283,7 @@ ActiveRecord::Schema.define(:version => 20120513211647) do
   create_table "tags", :force => true do |t|
     t.string "name"
   end
+
+  add_foreign_key "refinery_applications", "refinery_applicants", :name => "refinery_applications_refinery_applicant_id_fk"
 
 end

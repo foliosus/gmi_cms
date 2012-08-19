@@ -14,3 +14,9 @@ Refinery::Blog::Engine.load_seed
 
 # Added by Refinery CMS Inquiries engine
 Refinery::Inquiries::Engine.load_seed
+
+# Added by Refinery CMS Applicants extension
+Refinery::Applicants::Engine.load_seed
+
+# Added by Refinery CMS Applications extension
+Refinery::Applications::Engine.load_seed

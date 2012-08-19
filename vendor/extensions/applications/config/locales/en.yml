@@ -1,0 +1,35 @@
+en:
+  refinery:
+    plugins:
+      applications:
+        title: Applications
+    applications:
+      admin:
+        applications:
+          actions:
+            create_new: Add New Application
+            reorder: Reorder Applications
+            reorder_done: Done Reordering Applications
+          records:
+            title: Applications
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Applications yet. Click "Add New Application" to add your first application.
+          application:
+            view_live_html: View this application live <br/><em>(opens in a new window)</em>
+            edit: Edit this application
+            delete: Remove this application forever
+      applications:
+        show:
+          other: Other Applications
+  activerecord:
+    attributes:
+      'refinery/applications/application':
+        first_name: First Name
+        last_name: Last Name
+        address1: Address1
+        address2: Address2
+        city: City
+        state: State
+        postal_code: Postal Code
+        country: Country
+        statement: Statement

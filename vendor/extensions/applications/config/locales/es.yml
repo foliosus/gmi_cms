@@ -1,0 +1,36 @@
+es:
+  refinery:
+    plugins:
+      applications:
+        title: Applications
+#        article: masculino/femenino
+    applications:
+      admin:
+        applications:
+          actions:
+            create_new: Crear nuevo application
+            reorder: Reordenar applications
+            reorder_done: Reordenación de applications completada
+          records:
+            title: Applications
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay applications todavía. Pulsa en "Crear nuevo Application" para crear tu primer application.
+          application:
+            view_live_html: Ver este application como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este application
+            delete: Borrar este application para siempre
+      applications:
+        show:
+          other: Otros applications
+  activerecord:
+    attributes:
+      'refinery/applications/application':
+        first_name: First Name
+        last_name: Last Name
+        address1: Address1
+        address2: Address2
+        city: City
+        state: State
+        postal_code: Postal Code
+        country: Country
+        statement: Statement

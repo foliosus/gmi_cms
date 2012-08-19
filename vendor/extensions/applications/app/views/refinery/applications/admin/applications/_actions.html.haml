@@ -1,0 +1,18 @@
+%ul
+  - if ::Refinery::Applications::Admin::ApplicationsController.searchable?
+    %li= render '/refinery/admin/search', :url => refinery.applications_admin_applications_path
+  
+  %li= link_to t('.create_new'), refinery.new_applications_admin_application_path, :class => "add_icon"
+
+  - if !searching? && ::Refinery::Applications::Admin::ApplicationsController.sortable? && ::Refinery::Applications::Application.any?
+    %li
+      = link_to t('.reorder', :what => "Applications"),
+                refinery.applications_admin_applications_path,
+                :id => "reorder_action",
+                :class => "reorder_icon"
+
+    = link_to t('.reorder_done', :what => "Applications"),
+              refinery.applications_admin_applications_path,
+              :id => "reorder_action_done",
+              :style => "display: none;",
+              :class => "reorder_icon"

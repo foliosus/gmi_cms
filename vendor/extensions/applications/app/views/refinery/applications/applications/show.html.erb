@@ -1,0 +1,75 @@
+<% content_for :body_content_title do %>
+  <%= @application.first_name %>
+<% end %>
+
+<% content_for :body_content_left do %>
+  <section>
+    <h1>First Name</h1>
+    <p>
+      <%=raw @application.first_name %>
+    </p>
+  </section>
+  <section>
+    <h1>Last Name</h1>
+    <p>
+      <%=raw @application.last_name %>
+    </p>
+  </section>
+  <section>
+    <h1>Address1</h1>
+    <p>
+      <%=raw @application.address1 %>
+    </p>
+  </section>
+  <section>
+    <h1>Address2</h1>
+    <p>
+      <%=raw @application.address2 %>
+    </p>
+  </section>
+  <section>
+    <h1>City</h1>
+    <p>
+      <%=raw @application.city %>
+    </p>
+  </section>
+  <section>
+    <h1>State</h1>
+    <p>
+      <%=raw @application.state %>
+    </p>
+  </section>
+  <section>
+    <h1>Postal Code</h1>
+    <p>
+      <%=raw @application.postal_code %>
+    </p>
+  </section>
+  <section>
+    <h1>Country</h1>
+    <p>
+      <%=raw @application.country %>
+    </p>
+  </section>
+  <section>
+    <h1>Statement</h1>
+    <p>
+      <%=raw @application.statement %>
+    </p>
+  </section>
+<% end %>
+
+<% content_for :body_content_right do %>
+  <aside>
+    <h2><%= t('.other') %></h2>
+    <ul id="applications">
+      <% @applications.each do |application| %>
+        <li>
+          <%= link_to application.first_name, refinery.applications_application_path(application) %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+<% end %>
+
+<%= render '/refinery/content_page' %>

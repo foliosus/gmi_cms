@@ -1,0 +1,6 @@
+= f.inputs 'Address' do
+  = f.input :address1, :label => 'Address line 1', :required => true, :input_html => {:maxlength => 50, :disabled => disabled}
+  = f.input :address2, :label => 'Address line 2', :input_html => {:maxlength => 50, :disabled => disabled}
+  = f.input :city, :required => true, :input_html => {:maxlength => 50, :disabled => disabled}
+  = f.input :province, :label => 'State or province', :required => true, :input_html => {:maxlength => 30, :disabled => disabled}
+  = f.input :postal_code, :label => 'ZIP or postal code', :required => true, :input_html => {:maxlength => 10, :disabled => disabled}

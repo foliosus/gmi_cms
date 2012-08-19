@@ -1,0 +1,15 @@
+- @title = "My #{@part.to_s.humanize.titleize}"
+
+.span-8
+  %h2= @part.to_s.humanize
+  = semantic_form_for @application, :url => refinery.applications_application_path(@application) do |f|
+    = render :partial => @part.to_s, :locals => {:f => f, :disabled => !@application.can_be_edited?}
+    
+    - if @application.can_be_edited?
+      = f.actions do
+        = f.action :submit, :label => "Save the #{@part.to_s.humanize.downcase}"
+    - else
+      %p= link_to 'Return to application page', refinery.applications_applications_path(@application)
+
+.span-4.last
+  = render 'parts'

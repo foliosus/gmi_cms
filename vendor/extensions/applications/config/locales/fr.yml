@@ -1,0 +1,35 @@
+fr:
+  refinery:
+    plugins:
+      applications:
+        title: Applications
+    applications:
+      admin:
+        applications:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Application
+            reorder: Réordonner les Applications
+            reorder_done: Fin de réordonnancement des Applications
+          records:
+            title: Applications
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Application. Cliquer sur "Créer un(e) nouve(au/l/lle) Application" pour créer votre premi(er/ère) application.'
+          application:
+            view_live_html: Voir ce(t/tte) application <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) application
+            delete: Supprimer définitivement ce(t/tte) application
+      applications:
+        show:
+          other: Autres Applications
+  activerecord:
+    attributes:
+      'refinery/applications/application':
+        first_name: First Name
+        last_name: Last Name
+        address1: Address1
+        address2: Address2
+        city: City
+        state: State
+        postal_code: Postal Code
+        country: Country
+        statement: Statement

@@ -1,0 +1,21 @@
+- @title = 'Sign in'
+
+.span-6
+  %h2 Sign in to retrieve your application
+  .span-4
+    = semantic_form_for resource, :as => resource_name, :url => session_path(resource_name) do |f|
+      = devise_error_messages!
+      = f.inputs do
+        = f.input :email, :required => true, :input_html => {:maxlength => 50}
+        = f.input :password, :required => true, :input_html => {:maxlength => 255}
+        - if devise_mapping.rememberable?
+          = f.input :remember_me, :as => :boolean
+      = f.actions do
+        = f.action :submit, :label => 'Sign in'
+  
+    %p= link_to "Forgot your password?", new_password_path(resource_name)
+
+.span-6.last
+  %h2 Haven't started your application yet?
+  %p= link_to 'Start one now!', refinery.new_applicant_registration_path
+  = yield :side_body

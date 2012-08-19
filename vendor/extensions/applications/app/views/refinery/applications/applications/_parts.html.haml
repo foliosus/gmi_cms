@@ -1,0 +1,7 @@
+%h3 Parts
+%ul#application_parts
+  - Refinery::Applications::Application.parts.each do |sym, fields|
+    %li{:class => append_classes(sym == @part ? 'current' : nil, @application.valid_for_part?(sym) ? 'complete' : 'incomplete')}
+      = link_to_unless sym == @part, sym.to_s.humanize, refinery.edit_applications_application_path(@application, :part => sym)
+
+%p= link_to 'Log out', refinery.destroy_applicant_session_path, :method => :delete
