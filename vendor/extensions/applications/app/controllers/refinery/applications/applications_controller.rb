@@ -40,7 +40,12 @@ module Refinery
       end
       
       def submit
-        @application.submit!
+        if @application.valid?
+          @application.submit!
+        else
+          flash[:warning] = "Your application seems to have some errors, and can't be submitted at the moment. Please review the information and try re-submitting."
+        end
+        
         respond_to do |format|
           format.html { redirect_to refinery.applications_applications_path}
         end

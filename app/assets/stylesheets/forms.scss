@@ -12,6 +12,11 @@ form {
     }
   }
   
+  ol {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
   label {
     display: block;
     font-weight: bold;

@@ -63,12 +63,21 @@ module Refinery
         self.errors.keys.none?{|k| PARTS[sym].include?(k)}
       end
       
+      # Has the application been started, meaning, have any fields been filled out?
+      def started?
+        self.class.data_attributes.any?{|a| send(:"#{a}?")}
+      end
+      
       def self.part_names
         PARTS.keys.collect{|k| k.to_s.humanize}
       end
       
       def self.parts
         PARTS
+      end
+      
+      def self.data_attributes
+        PARTS.collect{|k,v| v}.flatten
       end
     end
   end

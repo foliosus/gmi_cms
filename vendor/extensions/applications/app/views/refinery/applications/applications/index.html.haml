@@ -1,9 +1,19 @@
 - @title = 'My application'
 
 .span-8
-  - if @application.submitted? # Old visitor -- tell 'em to wait
+  - case @application.state.to_sym
+  
+  - when :submitted
     %h2 Application submitted!
     %p Thank you for completing your application to Greenville Montessori Institute. We will be in touch when we make a decision.
+  
+  - when :accepted
+    %h1 Congratulations!
+    %p Welcome to Greenville Montessori Institute! We're happy to have you as a new student! We'll be in touch by mail with orientation information for you.
+  
+  - when :rejected
+    %h2 We're sorry!
+    %p We couldn't accept you to our course for this year. We'll be in touch by mail with information about your next steps. We'd like to encourage you to spend the next year working in the Montessori field, as a classroom assistant for example, and re-apply for our training next year.
   
   - else # In-flight application
     - if @application.valid?
@@ -11,8 +21,19 @@
       %p It looks like you've completed all parts of your application. If you think it's <em>really</em> done, then submit it for review. After you submit your application, you won't be able to make any more changes, so be sure!
       %p= link_to 'Submit your application!', refinery.submit_applications_application_path(@application), :method => :post, :class => 'button'
     - else
-      %h2 Incomplete application
-      %p Please continue filling out your application!
+      - if @application.started?
+        %h2 Incomplete application
+        - incomplete_parts = Refinery::Applications::Application.parts.keys.select{|part| !@application.valid_for_part?(part)}
+        %p Please continue filling out your application! It looks like you still need to work on the following part#{'s' if incomplete_parts.length > 1}:
+        %ul
+          - incomplete_parts.each do |part|
+            %li= link_to part.to_s.humanize, refinery.edit_applications_application_path(@application, :part => part)
+      - else
+        %h2 Thank you for applying!
+        %p Thank you for applying to Greenville Montessori Institute!
+        %p To the right you'll see a list with the parts of your application. The icon next to the name will turn into a check mark as you complete each part. As you work on them, your progress will be saved. You can always come back here to pick up where you left off.
+        %p When all parts of your application are complete you will be able to formally submit it to us for consideration. Until then, we won't look at it.
+        %p If you have any questions during the application process, please #{link_to 'get in touch with us', refinery.inquiries_new_inquiry_path}! We want you to be successful in Montessori, and your success starts now.
     
 
 .span-4.last
