@@ -21,3 +21,4 @@ bin/
 
 config/email.yml
 .sass-cache/
+public/assets/*
