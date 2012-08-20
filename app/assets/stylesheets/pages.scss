@@ -18,3 +18,53 @@
     }
   }
 }
+
+body.home_page {
+  #page_header {
+    margin-bottom: 0;
+    z-index: 20;
+  }
+  #page_header + .row {
+    position: relative;
+    z-index: 10;
+  }
+  #gallery {
+    list-style-type: none;
+    padding-left: 0;
+    @include margin-trailer(2);
+    li + li { display: none; }
+    li {
+      text-align: center;
+      img {
+        border: 10px solid #fff;
+        border-top: none;
+        @include border-corner-radius(bottom, left, 5px);
+        @include border-corner-radius(bottom, right, 5px);
+        position: relative;
+        &:after {
+          content: ' ';
+          display: block;
+          border: 1px solid lighten($logo_blue, 20%);
+          border-top: none;
+          position: absolute;
+          top: 0;
+          left: -11px;
+          width: 100%;
+        }
+      }
+      p {
+        position: relative; // Required for correct z-indexing
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+        @include adjust-font-size-to($base-font-size * 2, $lines: 3);
+        @include margin-leader(-2.5);
+        margin-bottom: 0;
+        @include bold;
+        color: #fff;
+        @include single-text-shadow(2px, 2px, 8px, false, rgba(0,0,0, 0.55));
+      }
+    }
+  }  
+}

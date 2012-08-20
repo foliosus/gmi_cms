@@ -28,10 +28,11 @@
       = stylesheet_link_tag 'ie', :media => 'all'
     
     = yield :meta
+    = yield :javascript
     
     = render :partial => 'refinery/google_analytics'
   
-  %body{:lang => Globalize.locale || 'en'}
+  %body{:lang => Globalize.locale || 'en', :class => @body_class}
     .container
       %header#page_header
         .row

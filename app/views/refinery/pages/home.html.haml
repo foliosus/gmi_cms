@@ -1,7 +1,17 @@
+- @body_class = 'home_page'
 .row
-  .span-12
-    %h1=h @page.title
+  - if @page.images.present?
+    %ul#gallery.span-12
+      - @page.images.each_with_index do |image, index|
+        %li
+          = image_tag image.thumbnail('1100x500c').url
+          = raw @page.caption_for_image_index(index)
+  
   .span-8
     = raw @page.content_for(:body)
   .span-4.last#sidebar
     = raw @page.content_for(:side_body)
+
+= content_for :javascript do
+  :javascript
+    console.log('initializing slideshow');

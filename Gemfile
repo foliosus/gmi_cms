@@ -22,7 +22,8 @@ group :assets do
 end
 
 gem 'jquery-rails', '~> 2.0.1'
-gem 'haml', '~> 3.1.4'
+gem 'haml', '~> 3.1.7'
+gem 'sass', '~> 3.2.1'
 
 # Deploy with Capistrano
 gem 'capistrano', '~> 2.11.2'
@@ -41,7 +42,7 @@ gem 'refinerycms-i18n', '~> 2.0.0'
 gem 'refinerycms-blog', '~> 2.0.0'
 gem 'refinerycms-inquiries', '~> 2.0.0'
 # gem 'refinerycms-search', '~> 2.0.0'
-# gem 'refinerycms-page-images', '~> 2.0.0'
+gem 'refinerycms-page-images', '~> 2.0.0'
 gem 'refinerycms-applications', :path => 'vendor/extensions'
 
 group :test do

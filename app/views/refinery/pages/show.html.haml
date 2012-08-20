@@ -5,3 +5,10 @@
     = raw @page.content_for(:body)
   .span-4.last#sidebar
     = raw @page.content_for(:side_body)
+    - if @page.images.present?
+      %ul#gallery
+        - @page.images.each_with_index do |image, index|
+          %li
+            = link_to image_tag(image.thumbnail('200x200#c').url), image.thumbnail('900x600').url
+            %span.caption
+              = raw @page.caption_for_image_index(index)
