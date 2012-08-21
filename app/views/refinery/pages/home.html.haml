@@ -14,4 +14,25 @@
 
 = content_for :javascript do
   :javascript
-    console.log('initializing slideshow');
+    $(document).ready(function() {
+      if($('#gallery li').length > 1) {
+        var displayTime = 5 * 1000, // 5 seconds
+            fadeTime = 1500;
+      
+        $('#gallery li:not(:first)').hide();
+      
+      	setInterval(function(){
+      	  var visible = $('#gallery li:visible');
+      		visible.fadeOut(fadeTime, function(){
+        		if(visible.next('li').size()){
+      				visible.next().fadeIn(fadeTime);
+      			}
+      			else{
+      				$('#gallery li').eq(0).fadeIn(fadeTime);
+      			}
+      		});
+  			
+      	}, displayTime);
+      };
+    });
+    
