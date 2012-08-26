@@ -4,7 +4,7 @@
     %ul#gallery.span-12
       - @page.images.each_with_index do |image, index|
         %li
-          = image_tag image.thumbnail('1120x500c').url
+          = image_tag image.thumbnail('1118x500c').url
           = raw @page.caption_for_image_index(index)
   
   .span-8
