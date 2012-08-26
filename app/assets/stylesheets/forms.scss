@@ -15,6 +15,7 @@ form {
   ol {
     list-style-type: none;
     padding-left: 0;
+    margin-bottom: 0;
   }
   
   label {
@@ -87,7 +88,7 @@ form {
   }
   
   p.inline-errors, p.inline-hints {
-    @include margin-leader(-1);
+    @include margin-leader(-0.5);
   }
   p.inline-errors {
     color: #900;
@@ -98,7 +99,7 @@ form {
   
   li.error {
     $base_color: adjust_hue(lighten($logo_green, 50%), -120deg); // Red
-    input {
+    input, textarea, select {
       background-color: rgba(desaturate($base_color, 30%), 0.25);
       border-color: rgba(darken($base_color, 50%), 0.33);
     }

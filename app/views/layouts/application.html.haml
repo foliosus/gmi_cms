@@ -15,7 +15,7 @@
     
     %link{:rel => 'icon', :type => 'image/png', :href => '/favicon.png'}
     
-    = stylesheet_link_tag '1140', 'application', :media => 'all'
+    = stylesheet_link_tag 'application', :media => 'all'
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,latin-ext', :media => 'all'
     
     = javascript_include_tag 'application', 'css3-mediaqueries.js'
@@ -23,7 +23,7 @@
     = csrf_meta_tags if Refinery::Core.authenticity_token_on_frontend
     
     /[if lt IE 9]
-      / This script enables structural HTML5 elements in old IE. http://code.google.com/p/html5shim/
+      -# This script enables structural HTML5 elements in old IE. http://code.google.com/p/html5shim/
       %script{:src => 'http:///html5shim.googlecode.com/svn/trunk/html5.js'}
       = stylesheet_link_tag 'ie', :media => 'all'
     

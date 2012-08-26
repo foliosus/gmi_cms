@@ -1,0 +1,20 @@
+- @title = @post.title
+
+.span-12
+  .span-8
+    = render 'post'
+    
+    - if Refinery::Blog::Post.comments_allowed?
+      = render 'comments'
+  
+  .span-4.last#sidebar
+    %h1 Explore our blog
+    = render :partial => '/refinery/blog/shared/sidebar'
+
+- if Refinery::Blog::Post::ShareThis.enabled?
+  - content_for :javascripts do
+    -# enable AJAX'd post nav at your own risk until html5 history API implemented.
+    -#= javascript_include_tag('refinery/blog/frontend')
+    %script{:src => 'http://w.sharethis.com/button/buttons.js'}
+    :javascript
+      stLight.options({publisher:'#{Blog::Post::ShareThis.key}'});

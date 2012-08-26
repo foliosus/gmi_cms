@@ -1,0 +1,40 @@
+- post ||= @post
+
+- if post
+  - if post.draft?
+    = render :partial => '/refinery/draft_page_message'
+  
+  %article.blog_post{:id => "post_#{post.id}"}
+    %header
+      %h1= link_to post.title, refinery.blog_post_path(post), :rel => 'bookmark'
+      %section.metadata
+        %aside
+          %time.posted_at{:datetime => l(post.published_at.to_date, :format => :default)}
+            = t('created_at', :scope => 'refinery.blog.shared.posts', :when => l(post.published_at.to_date, :format => :short))
+    
+          - if post.author.present?
+            %span.blog_author= "#{t('by', :scope => 'refinery.blog.posts.show').downcase} #{post.author.username}"
+          
+          - if (categories = post.categories).any?
+            \|
+            %span.filed_in
+              = t('filed_in', :scope => 'refinery.blog.posts.show')
+              = raw(categories.collect{|cat| link_to(h(cat.title), refinery.blog_category_path(cat))}.join(', '))
+        
+        - if post.source_url.present?
+          %aside.blog_source
+            = "#{t('source', :scope => 'refinery.blog.posts.show')}: "
+            = link_to (post.source_url_title.blank? ? post.source_url : post.source_url_title), post.source_url
+        
+        - if (tags = post.tags).any?
+          %aside.tags
+            = t('tagged', :scope => 'refinery.blog.posts.show')
+            = raw(post.tags.collect{|tag| link_to h(tag.name), refinery.blog_tagged_posts_path(tag, :tag_name => h(tag.name)) }.join(' , '))
+    
+    %section.main_content
+      = post.body.html_safe
+  
+    - if Refinery::Blog::Post::ShareThis.enabled?
+      %span.st_sharethis{:displayText => "ShareThis"}
+  
+  = render 'nav' if @post.present? && next_or_previous?(post)

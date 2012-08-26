@@ -26,7 +26,7 @@ $col_width: (100% - (($col_num - 1) * $gutter_width)) / $col_num;
     margin-right: $gutter_width;
     float: left;
     min-height: 1px;
-    .row > & {
+    .row > &, .span-12 > & {
       width: $i * $col_width + (($i - 1) * $gutter_width);
     }
     &.last { margin-right: 0; }

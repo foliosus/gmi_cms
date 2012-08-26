@@ -9,21 +9,24 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
 */
+
+@import "compass/reset";
 
 @import "standard_declarations";
 
+@import "1140";
+@import "layout";
 @import "typography";
 @import "forms";
+@import "pages";
+@import "blog";
 
 #contact_information { display: none; }
 
 .center {
   text-align: center;
 }
-
-@import "pages";
 
 
 /* ============== */
@@ -35,7 +38,7 @@
   border-color: rgba(darken($base_color, 50%), 0.33);
 }
 
-#messages {
+#messages, .messages {
   .flash {
     @include margin-trailer(1);
     @include padding_leader(1);
@@ -55,23 +58,23 @@
       height: 20px;
       margin-left: 2rem;
       text-indent: -9999em;
-      background: transparent url('/assets/icon_close.png') center no-repeat;
+      background: transparent image-url('icon_close.png') center no-repeat;
     }
     
     $info_color: lighten($logo_green, 50%);
     &.info, &.notice {
       @include flash_box($info_color);
-      background-image: url('/assets/icon_check.png');
+      background-image: image-url('icon_check.png');
     }
     
     &.warning {
       @include flash_box(adjust_hue($info_color, -75deg));
-      background-image: url('/assets/icon_warning.png');
+      background-image: image-url('icon_warning.png');
     }
     
     &.error, &.alert {
       @include flash_box(adjust_hue($info_color, -120deg));
-      background-image: url('/assets/icon_error.png');
+      background-image: image-url('icon_error.png');
       
     }
   }

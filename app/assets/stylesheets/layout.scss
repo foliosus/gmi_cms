@@ -5,7 +5,7 @@ body {
 }
 
 .container {
-  background: $body_background_color url('/assets/linen_texture.jpg') repeat;
+  background: $body_background_color image-url('linen_texture.jpg') repeat;
 }
 
 @mixin behave_with_the_grid {

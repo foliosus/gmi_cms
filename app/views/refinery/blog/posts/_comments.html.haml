@@ -1,0 +1,16 @@
+%aside#comments
+  %h1= t('title', :scope => 'refinery.blog.posts.show.comments')
+  - if (comments = @post.comments.approved).any?
+    = render :partial => "comment", :collection => comments
+  - else
+    %p= t('none', :scope => 'refinery.blog.shared.comments').capitalize
+  
+  = semantic_form_for [refinery, :blog, @comment] do |f|
+    = render :partial => "/refinery/admin/error_messages",
+             :locals => { :object => f.object, :include_object_name => true }
+    = f.inputs t('add', :scope => 'refinery.blog.posts.show.comments') do
+      = f.input :name, :required => true
+      = f.input :email, :required => true
+      = f.input :message, :required => true, :as => :text
+    = f.actions do
+      = f.action :submit, :label => t('submit', :scope => 'refinery.blog.posts.show')

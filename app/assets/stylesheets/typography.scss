@@ -40,7 +40,7 @@ h4 {
   @include bold;
 }
 
-p, ul, ol, blockquote {
+p, ul, ol, blockquote, aside {
   @include trailer;
 }
 
@@ -68,8 +68,18 @@ a, a:link {
   border-bottom: 1px solid;
   &.image { border-bottom: none; }
 }
-a:visited { color: $link_visited_color; }
-a:hover, a:active { color: $link_active_color; }
+a:visited {
+  color: $link_visited_color;
+}
+a:hover, a:active {
+  color: $link_active_color;
+}
+
+h1, h2, h3, h4 {
+  a, a:link {
+    border-bottom: none;
+  }
+}
 
 a.button {
   display: block;
@@ -79,10 +89,10 @@ a.button {
   border: 1px solid $logo_blue;
   text-align: center;
   @include adjust_font_size_to($base-font-size * 1.5);
-  @include padding_leader(0.5);
-  @include padding_trailer(0.5);
-  @include margin_leader(1);
-  @include margin_trailer(1);
+  @include padding-leader(0.5);
+  @include padding-trailer(0.5);
+  @include margin-leader(1);
+  @include margin-trailer(1);
   @include border-radius(5px);
   @include single-text-shadow($logo_blue, 0, -1px, 1px);
   @include background-image(linear-gradient(top, desaturate(lighten($logo_blue, 40%), 40%), lighten($logo_blue, 10%)));
@@ -95,7 +105,16 @@ a.button {
 
 #sidebar {
   @include adjust-font-size-to($base-font-size * 0.875, $lines: 1);
-  h1 { @include adjust-font-size-to($base-font-size * 1.5, $lines: 2) }
-  h2 { @include adjust-font-size-to($base-font-size * 1.25, $lines: 2) }
-  h3 { @include adjust-font-size-to($base-font-size * 1, $lines: 1) }
+  h1 {
+    @include adjust-font-size-to($base-font-size * 1.5, $lines: 2);
+    @include margin-trailer(0.5);
+  }
+  h2 {
+    @include adjust-font-size-to($base-font-size * 1.25, $lines: 2);
+    margin-bottom: 0;
+  }
+  h3 {
+    @include adjust-font-size-to($base-font-size * 1, $lines: 1);
+    margin-bottom: 0;
+  }
 }
