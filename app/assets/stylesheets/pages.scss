@@ -31,9 +31,13 @@ body.home_page {
   #gallery {
     list-style-type: none;
     padding-left: 0;
-    @include margin-trailer(2);
+    position: relative;
+    height: 500px; // height of the images
+    @include margin-trailer(1.5);
     li + li { display: none; }
     li {
+      position: absolute;
+      display: block;
       text-align: center;
       img {
         border: 10px solid #fff;

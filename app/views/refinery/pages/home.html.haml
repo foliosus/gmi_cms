@@ -22,16 +22,20 @@
         $('#gallery li:not(:first)').hide();
       
       	setInterval(function(){
-      	  var visible = $('#gallery li:visible');
-      		visible.fadeOut(fadeTime, function(){
-        		if(visible.next('li').size()){
-      				visible.next().fadeIn(fadeTime);
-      			}
-      			else{
-      				$('#gallery li').eq(0).fadeIn(fadeTime);
-      			}
-      		});
-  			
+      	  var visible = $('#gallery li:visible'),
+      	      next = null,
+      	      hideVisible = function() {
+          		  visible.hide();
+      	      };
+      	  
+      		if(visible.next('li').size()){
+      		  next = visible.next();
+    			} else {
+    				next = $('#gallery li').eq(0);
+    			};
+    			
+    			visible.css({zIndex: 5});
+    			next.css({zIndex: 6}).fadeIn(fadeTime, hideVisible);
       	}, displayTime);
       };
     });
