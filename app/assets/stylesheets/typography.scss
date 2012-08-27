@@ -22,6 +22,7 @@ body {
 
 h1 {
   @include adjust-font-size-to($base-font-size * 3, $lines: 5);
+  letter-spacing: -0.025em;
   @include margin-trailer(1);
   color: $logo_green;
   font-weight: bold;
@@ -29,6 +30,7 @@ h1 {
 
 h2 {
   @include adjust-font-size-to($base-font-size * 2, $lines: 3);
+  letter-spacing: -0.025em;
   @include margin-trailer(1);
 }
 
