@@ -34,6 +34,16 @@ body {
     float: right;
     @include subtle_links;
     @include adjust-font-size-to($base-font-size * 0.75, $lines: 1);
+    a {
+      padding-left: 25px;
+      background: transparent no-repeat left center;
+      &.es {
+        background-image: image-url('refinery/icons/flags/mx.png');
+      }
+      &.en {
+        background-image: image-url('refinery/icons/flags/us.png');
+      }
+    }
   }
 }
 

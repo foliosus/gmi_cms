@@ -39,7 +39,7 @@
           %h1#branding
             = link_to image_tag('gmi_logo.png', :width => 200, :height => 80, :alt => 'Greenville Montessori Institute'), refinery.root_path
           #language_switcher
-            %p= language_switching_link
+            %p= language_switching_links
           = render :partial => 'refinery/menu', :locals => {:dom_id => 'primary_menu'}
       .row
         = render :partial => 'refinery/message'
