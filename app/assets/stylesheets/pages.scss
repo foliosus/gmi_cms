@@ -49,15 +49,16 @@ body.home_page {
       }
       p {
         position: absolute;
-        bottom: 1.5rem;
-        left: 30px;
-        max-width: 1080px;
+        bottom: 3rem;
+        left: 40px;
+        max-width: 1060px;
         margin: 0 auto;
         text-align: left;
-        @include adjust-font-size-to($base-font-size * 2, $lines: 3);
+        @include adjust-font-size-to($base-font-size * 3, $lines: 6);
+        letter-spacing: -0.025em;
         @include bold;
         color: #fff;
-        @include single-text-shadow(2px, 2px, 8px, false, rgba(0,0,0, 0.75));
+        @include single-text-shadow(4px, 4px, 8px, false, #000);
       }
     }
   }  
