@@ -5,7 +5,18 @@
   .span-8
     - if @posts.any?
       %section#blog_posts
-        = render :partial => "post", :collection => @posts
+        - @posts.each do |post|
+          %article.blog_post{:id => "post_#{post.id}"}
+            %header
+              = render :partial => 'metadata', :locals => {:post => post}
+            %section.main_content
+              - if post.custom_teaser?
+                = post.custom_teaser.html_safe
+                %p
+                  %em= link_to raw('Read the rest &rarr;'), refinery.blog_post_path(post), :rel => 'bookmark'
+              - else
+                %p
+                  %em= link_to raw('Read the full entry &rarr;'), refinery.blog_post_path(post), :rel => 'bookmark'
         = will_paginate @posts
     - else
       %h3= t('.no_blog_articles_yet')
