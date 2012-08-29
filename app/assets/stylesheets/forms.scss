@@ -9,6 +9,7 @@ form {
       @include adjust-font-size-to($base-font-size * 1.5, $lines: 2);
       @include margin-trailer(1);
       @include bold;
+      letter-spacing: -0.025em;
     }
   }
   
