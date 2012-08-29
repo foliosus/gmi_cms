@@ -46,6 +46,7 @@ body.home_page {
         border-top: none;
         @include border-corner-radius(bottom, left, 5px);
         @include border-corner-radius(bottom, right, 5px);
+        @include single-box-shadow($color: rgba(0,0,0,0.25), $blur: 10px, $inset: inset);
       }
       p {
         position: absolute;
