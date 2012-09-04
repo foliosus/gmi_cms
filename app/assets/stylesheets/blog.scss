@@ -28,6 +28,20 @@ article.blog_post {
   @include subtle_link;
 }
 
+#sidebar {
+  #categories li,
+  #tags,
+  #blog_posts li,
+  #blog_archive_widget li {
+    @include subtle_links;
+  }
+
+  #categories, #blog_posts, #blog_archive_widget ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+}
+
 #next_prev_article {
   border: 1px solid #ddd;
   border-left: none; border-right: none;
