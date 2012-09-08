@@ -29,3 +29,11 @@ $base-line-height: 22px;
 @mixin bold {
   font-weight: 700;
 }
+
+@mixin bordered_image($width: 4px, $border_radius: 4px) {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: $width;
+  @include border-radius($border_radius);
+  @include single-box-shadow($color: rgba(0,0,0,0.25), $blur: $width, $inset: inset);
+}

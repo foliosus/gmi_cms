@@ -19,6 +19,28 @@
   }
 }
 
+#sidebar #gallery {
+  list-style-type: none;
+  padding-left: 0;
+  li {
+    width: 30%;
+    margin-right: 3%;
+    float: left;
+    @include subtle_links;
+
+    &:nth-child(n+3) {
+      margin-right: 0;
+    }
+    .caption {
+      display: none;
+    }
+  }
+  img {
+    @include box-sizing(border-box);
+    @include bordered_image(4px, 4px);
+  }
+}
+
 body.home_page {
   #page_header {
     margin-bottom: 0;
@@ -40,13 +62,10 @@ body.home_page {
       display: block;
       text-align: center;
       img {
-        padding: 10px;
-        background-color: #fff;
-        border: 1px solid #ddd;
+        @include bordered_image(10px, 5px);
         border-top: none;
-        @include border-corner-radius(bottom, left, 5px);
-        @include border-corner-radius(bottom, right, 5px);
-        @include single-box-shadow($color: rgba(0,0,0,0.25), $blur: 10px, $inset: inset);
+          @include border-corner-radius(top, left, 0);
+          @include border-corner-radius(top, right, 0);
       }
       p {
         position: absolute;
