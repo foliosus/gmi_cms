@@ -21,6 +21,9 @@ Refinery::Core.configure do |config|
   # Enable/disable authenticity token on frontend
   config.authenticity_token_on_frontend = true
 
+  # Force SSL
+  config.force_ssl = Rails.env.production?
+
   # Hide/show child pages in menu
   # config.menu_hide_children = false
 
