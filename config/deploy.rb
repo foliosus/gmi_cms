@@ -1,9 +1,9 @@
-$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
-require 'rvm/capistrano'
 require 'bundler/capistrano'
 require 'new_relic/recipes'
 
 set :rvm_ruby_string, 'ruby-1.9.2-p318@gmi'
+set :rvm_type, :root
+require 'rvm/capistrano'
 
 load 'deploy/assets'
 
@@ -12,9 +12,9 @@ set :domain, 'montessori-training-sc.com'
 set :user, 'deployer'
 
 set :scm, 'git'
-set :repository,  "git://github.com/foliosus/GMI.git"
+set :repository,  "git://github.com/foliosus/gmi_cms.git"
 set :branch, 'master'
-set :deploy_via, :remote_cache
+# set :deploy_via, :remote_cache
 
 set :use_sudo, false
 set :deploy_to, "~/app"
@@ -42,10 +42,22 @@ namespace :deploy do
     end
   end
   after 'deploy:finalize_update', 'deploy:symlink_database_yml'
+
+  task :symlink_system_dir, :roles => :app do
+    run "ln -s #{deploy_to}/shared/system #{release_path}/public/system"
+  end
+  after 'deploy:finalize_update', 'deploy:symlink_system_dir'
   
   # task :restart_delayed_job, :roles => :app do
   #   run 'sudo restart delayed_job2'
   # end
   # after 'deploy:start', 'deploy:restart_delayed_job'
   # after 'deploy:restart', 'deploy:restart_delayed_job'
+end
+
+namespace :bundle do
+  task :trust_rvmrc do
+    run "/usr/local/rvm/scripts/rvm && cd #{latest_release} && /usr/local/rvm/bin/rvm rvmrc trust #{latest_release}/.rvmrc"
+  end
+  before('bundle:install', 'bundle:trust_rvmrc')
 end

@@ -25,13 +25,14 @@ gem 'jquery-rails', '~> 2.0.1'
 gem 'haml', '~> 3.1.7'
 gem 'sass', '~> 3.2.1'
 
-# Deploy with Capistrano
-gem 'capistrano', '~> 2.11.2'
 gem 'newrelic_rpm', '~> 3.3'
 
 group :development do
   # gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'thin'
+  # Deploy with Capistrano
+  gem 'capistrano', '~> 2.12.0'
+  gem 'rvm-capistrano', '~> 1.2.5'
 end
 
 # Refinery CMS
