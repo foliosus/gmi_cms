@@ -43,11 +43,6 @@ namespace :deploy do
   end
   after 'deploy:finalize_update', 'deploy:symlink_database_yml'
 
-  task :symlink_system_dir, :roles => :app do
-    run "ln -s #{deploy_to}/shared/system #{release_path}/public/system"
-  end
-  after 'deploy:finalize_update', 'deploy:symlink_system_dir'
-  
   # task :restart_delayed_job, :roles => :app do
   #   run 'sudo restart delayed_job2'
   # end
