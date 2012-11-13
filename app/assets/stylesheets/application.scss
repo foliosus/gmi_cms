@@ -80,3 +80,18 @@
     }
   }
 }
+
+/* =============== */
+/* Embedded movies */
+/* =============== */
+
+#sidebar iframe {
+  width: 100%;
+  height: 300px;
+}
+
+@media handheld, only screen and (max-width: 767px) {
+  #sidebar iframe {
+    height: 400px;
+  }
+}
