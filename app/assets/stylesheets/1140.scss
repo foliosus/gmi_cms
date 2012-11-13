@@ -38,7 +38,6 @@ $col_width: (100% - (($col_num - 1) * $gutter_width)) / $col_num;
   width: 100%;
 }
 
-
 img, object, embed {
   max-width: 100%;
 }
@@ -86,5 +85,8 @@ img {
 }
 
 @media handheld, only screen and (max-width: 321px) {
-  @include establish-baseline(18px);
+  @include establish-baseline(16px);
+  #sidebar {
+    @include establish-baseline(14px);
+  }
 }

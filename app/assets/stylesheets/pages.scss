@@ -54,18 +54,18 @@ body.home_page {
     list-style-type: none;
     padding-left: 0;
     position: relative;
-    height: 500px; // height of the images
-    @include margin-trailer(1.5);
+    @include margin-trailer(1);
     li + li { display: none; }
     li {
-      position: absolute;
+      position: relative;
       display: block;
       text-align: center;
       img {
         @include bordered_image(10px, 5px);
         border-top: none;
-          @include border-corner-radius(top, left, 0);
-          @include border-corner-radius(top, right, 0);
+        @include border-corner-radius(top, left, 0);
+        @include border-corner-radius(top, right, 0);
+        max-width: 96%;
       }
       p {
         position: absolute;
@@ -83,3 +83,15 @@ body.home_page {
     }
   }  
 }
+
+@media handheld, only screen and (max-width: 768px) {
+  body.home_page {
+    #gallery li {
+      p {
+        @include adjust-font-size-to($base-font-size * 2, $lines: 4);
+        @include establish_baseline($base-font-size * 1.5);
+      }
+    }
+  }
+}
+

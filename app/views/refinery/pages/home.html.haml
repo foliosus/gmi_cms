@@ -1,12 +1,13 @@
 - @body_class = 'home_page'
-.row
-  - if @page.images.present?
+- if @page.images.present?
+  .row
     %ul#gallery.span-12
       - @page.images.each_with_index do |image, index|
         %li
           = image_tag image.thumbnail('1118x500c').url
           = raw @page.caption_for_image_index(index)
-  
+
+.row
   .span-8
     = raw @page.content_for(:body)
   .span-4.last#sidebar
