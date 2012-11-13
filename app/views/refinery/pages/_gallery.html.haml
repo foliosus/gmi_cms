@@ -1,0 +1,18 @@
+- if @page.images.present?
+  - content_for :javascript do
+    :javascript
+      jQuery(function($) {
+        jQuery('#gallery a').colorbox({
+          transition: 'fade',
+          speed: 250,
+          title: function(){
+                    return $(this).next('.caption').clone();
+                  }
+        });
+      });
+  %ul#gallery
+    - @page.images.each_with_index do |image, index|
+      %li
+        = link_to image_tag(image.thumbnail('200x200#c').url), image.thumbnail('900x600').url, :rel => 'gallery'
+        .caption
+          = raw @page.caption_for_image_index(index)
