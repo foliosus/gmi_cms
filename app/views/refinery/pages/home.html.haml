@@ -15,13 +15,27 @@
 
 = content_for :javascript do
   :javascript
-    $(document).ready(function() {
+    $(window).load(function() {
+      var ratio = 1118 / 500, // Images are 1118w x 500h
+          $gallery = $('#gallery'),
+          resizer = function() {
+            if($gallery.width() < 1118) {
+              $gallery.height($gallery.width() / ratio);
+            } else {
+              $gallery.height(500);
+            }
+          };
+
+      // $('#gallery li').width($gallery.width()); // Fix for webkit, which messes up initial image
+      resizer();
+      $(window).resize(resizer);
+
       if($('#gallery li').length > 1) {
         var displayTime = 5 * 1000, // 5 seconds
             fadeTime = 1500;
       
         $('#gallery li:not(:first)').hide();
-      
+        
       	setInterval(function(){
       	  var visible = $('#gallery li:visible'),
       	      next = null,
@@ -37,6 +51,8 @@
     			
     			visible.css({zIndex: 5});
     			next.css({zIndex: 6}).fadeIn(fadeTime, hideVisible);
+
+
       	}, displayTime);
       };
     });

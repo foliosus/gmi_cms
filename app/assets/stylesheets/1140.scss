@@ -56,7 +56,7 @@ img {
 
 /* Mobile */
 
-@media handheld, only screen and (max-width: 767px) {
+@media only screen and (max-width: 767px) {
   
 	body {
   	-webkit-text-size-adjust: none;
@@ -84,7 +84,7 @@ img {
 
 }
 
-@media handheld, only screen and (max-width: 321px) {
+@media only screen and (max-width: 321px) {
   @include establish-baseline(16px);
   #sidebar {
     @include establish-baseline(14px);

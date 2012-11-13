@@ -55,17 +55,19 @@ body.home_page {
     padding-left: 0;
     position: relative;
     @include margin-trailer(1);
+    height: 500px;
     li + li { display: none; }
     li {
-      position: relative;
+      position: absolute;
       display: block;
       text-align: center;
+      width: 100%;
       img {
         @include bordered_image(10px, 5px);
         border-top: none;
         @include border-corner-radius(top, left, 0);
         @include border-corner-radius(top, right, 0);
-        max-width: 96%;
+        width: 96%;
       }
       p {
         position: absolute;
@@ -84,12 +86,15 @@ body.home_page {
   }  
 }
 
-@media handheld, only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   body.home_page {
-    #gallery li {
-      p {
-        @include adjust-font-size-to($base-font-size * 2, $lines: 4);
-        @include establish_baseline($base-font-size * 1.5);
+    #gallery {
+      @include margin-trailer(1.5);
+      li {
+        p {
+          @include adjust-font-size-to($base-font-size * 2, $lines: 4);
+          @include establish_baseline($base-font-size * 1.5);
+        }
       }
     }
   }
