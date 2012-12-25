@@ -25,7 +25,7 @@ gem 'jquery-rails', '~> 2.0.1'
 gem 'haml', '~> 3.1.7'
 gem 'sass', '~> 3.2.1'
 
-gem 'newrelic_rpm', '~> 3.3'
+gem 'newrelic_rpm', '~> 3.5.4'
 
 group :development do
   # gem 'ruby-debug19', :require => 'ruby-debug'
