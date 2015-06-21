@@ -23,13 +23,13 @@ body {
   @include background-image(linear-gradient(#fff 50%, $body_background_accent_color));
   border-bottom: 1px solid darken($body_background_accent_color, 4%);
   @include single-box-shadow(rgba(0,0,0, 0.1), 0px, 2px, 8px);
-  
+
   #branding {
     float: left;
     @include subtle_links;
     @include margin_trailer(1);
   }
-  
+
   #language_switcher {
     float: right;
     @include subtle_links;
@@ -86,7 +86,7 @@ body {
   border-top: 2px solid darken($body_text_color, 50%);
   color: #aaa;
   a, a:link { color: lighten($link_color, 50%); }
-  
+
 }
 
 @media handheld, only screen and (max-width: 767px) {
@@ -105,7 +105,7 @@ body {
     padding-right: 20px;
     @include box-sizing(border-box);
   }
-  
+
   #primary_menu {
     clear: left;
     margin-left: 0;
