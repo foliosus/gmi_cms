@@ -52,6 +52,7 @@ body {
   float: left;
   padding-top: 60px;
   margin-left: 10%;
+
   ul {
     float: left;
     list-style-type: none;
@@ -70,9 +71,46 @@ body {
         a {
           color: $link_visited_color;
           font-weight: bold;
-          pointer: default;
+          cursor: default;
         }
       }
+    }
+  } // ul
+
+  button {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: -3.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: $logo_blue;
+    color: #fff;
+    @include bold;
+  }
+}
+
+@media handheld, only screen and (max-width: 767px) {
+  #primary_menu {
+    position: relative;
+    clear: left;
+    margin-left: 0;
+    padding-top: 0;
+    width: 100%;
+
+    ul {
+      float: none;
+      display: none;
+      li {
+        float: none;
+        a {
+          padding-left: 0;
+        }
+      }
+    } // ul
+
+    button {
+      display: block;
     }
   }
 }
@@ -104,14 +142,5 @@ body {
     padding-left: 20px;
     padding-right: 20px;
     @include box-sizing(border-box);
-  }
-
-  #primary_menu {
-    clear: left;
-    margin-left: 0;
-    padding-top: 0;
-    li.first {
-      a { padding-left: 0; }
-    }
   }
 }

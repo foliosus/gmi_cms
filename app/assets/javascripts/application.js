@@ -21,9 +21,25 @@ jQuery(function($) {
     });
     return false;
   });
-  
+
   // After 10 seconds, close any flash messages
   setTimeout(function() {
     $('#messages .flash_close').click();
   }, 10 * 1000);
+
+
+  // Build a nicely responsive nav
+  var $window = $(window),
+      $menu_ul = $('#primary_menu ul');
+  $('#primary_menu').prepend('<button>Menu</button>');
+  $('#primary_menu button').click(function() {
+    $menu_ul.toggle(200);
+  });
+  $window.resize(function() {
+    if($window.width() > 767) {
+      $menu_ul.show();
+    } else {
+      $menu_ul.hide();
+    }
+  });
 });
