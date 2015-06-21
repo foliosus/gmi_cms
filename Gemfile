@@ -16,6 +16,7 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', '~> 0.12'
+  gem 'libv8', '3.16.14.7'
 
   gem 'uglifier', '>= 1.0.3'
 end
