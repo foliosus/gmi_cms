@@ -4,7 +4,7 @@
     %meta{:charset => 'utf-8'}
     %meta{:'http-equiv' => 'X-UA-Compatible', :content => 'IE=edge,chrome=1'}
     %title= [@title.presence || @page.try(:browser_title).presence || @page.try(:menu_title).presence || @page.try(:title), 'Greenville Montessori Institute, South Carolina'].join(' :: ')
-    
+
     %meta{:name => 'viewport', :content => 'width=device-width', :'initial-scale' => 1}
     - if @meta.meta_description.present?
       %meta{:name => :description, :content => @meta.meta_description}
@@ -12,26 +12,26 @@
       %meta{:name => :keywords, :content => @meta.meta_keywords}
     - if @canonical.present?
       %link{:rel => :canonical, :content => @canonical}
-    
+
     %link{:rel => 'icon', :type => 'image/png', :href => '/favicon.png'}
-    
+
     = stylesheet_link_tag 'application', :media => 'all'
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,latin-ext', :media => 'all'
-    
+
     = javascript_include_tag 'application', 'css3-mediaqueries.js'
-  	
+
     = csrf_meta_tags if Refinery::Core.authenticity_token_on_frontend
-    
+
     /[if lt IE 9]
       -# This script enables structural HTML5 elements in old IE. http://code.google.com/p/html5shim/
       %script{:src => 'http:///html5shim.googlecode.com/svn/trunk/html5.js'}
       = stylesheet_link_tag 'ie', :media => 'all'
-    
+
     = yield :meta
     = yield :javascript
-    
+
     = render :partial => 'refinery/google_analytics'
-  
+
   %body{:lang => Globalize.locale || 'en', :class => @body_class}
     .container
       %header#page_header
