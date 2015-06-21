@@ -1,7 +1,7 @@
 require 'bundler/capistrano'
 require 'new_relic/recipes'
 
-set :rvm_ruby_string, 'ruby-1.9.2-p318@gmi'
+set :rvm_ruby_string, 'ruby-1.9.3-p194@gmi'
 set :rvm_type, :root
 require 'rvm/capistrano'
 
