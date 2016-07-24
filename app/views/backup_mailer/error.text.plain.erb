@@ -1,0 +1,7 @@
+The creation of <%= @filename %> failed with the following error:
+
+<%= @error.class %>: <%= @error.to_s %>
+
+<%- @error.backtrace.each do |l| -%>
+  <%= l %>
+<%- end -%>
