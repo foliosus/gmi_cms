@@ -117,7 +117,7 @@ GEM
     net-ssh (2.9.2)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
-    newrelic_rpm (3.12.0.288)
+    newrelic_rpm (3.16.0.318)
     orm_adapter (0.0.7)
     paper_trail (2.7.2)
       activerecord (~> 3.0)
